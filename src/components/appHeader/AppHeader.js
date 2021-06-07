@@ -1,45 +1,51 @@
-import styled, { keyframes } from "styled-components";
-import MainNavigation from "../mainNavigation/MainNavigation";
-import logo from "../../assets/images/logo.svg";
+import styled from "styled-components";
+import logo from "../../assets/images/logo.png";
+import ThemeToggle from "./themeToggle/ThemeToggle.js";
 
 const Header = styled.header`
-	background-color: #282c34;
-	height: 10rem;
+	background-color: ${({ theme }) => theme.headerBgColor};
+	height: 9rem;
 	font-size: calc(10px + 2vmin);
 	color: white;
+	transition: all 0.5s linear;
 `;
 
-const Wrapper = styled.div`
+const Container = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 0 2rem;
 	justify-content: space-between;
 	max-width: 1400px;
 	margin: 0 auto;
+	height: 100%;
 `;
 
-const spin = keyframes`
-    from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+const LeftHeader = styled.div`
+	display: flex;
+	align-items: center;
+	height: 100%;
 `;
 
 const AppLogo = styled.img`
-	height: 100px;
-	pointer-events: none;
-	animation: ${spin} infinite 20s linear;
+	height: 75px;
 `;
 
-const AppHeader = () => {
+const AppTitle = styled.span`
+	color: ${({ theme }) => theme.fontColor};
+	font-weight: 800;
+	transition: all 0.5s linear;
+`;
+
+const AppHeader = ({ theme, toggleTheme }) => {
 	return (
 		<Header>
-			<Wrapper>
-				<AppLogo src={logo} alt="logo" />
-				<MainNavigation />
-			</Wrapper>
+			<Container>
+				<LeftHeader>
+					<AppLogo src={logo} alt="logo" />
+					<AppTitle>Country Lookup</AppTitle>
+				</LeftHeader>
+				<ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+			</Container>
 		</Header>
 	);
 };

@@ -1,21 +1,18 @@
 import styled from "styled-components";
 
+
 const PageContainer = styled.div`
 	padding: 12rem 2rem;
 	text-align: center;
-	background-color: gray;
-	min-height: calc(100vh - 10rem);
-`;
-
-const PageHeading = styled.div`
-	color: #fff;
-	font-size: 5rem;
+	background-color: ${({ theme }) => theme.pageBgColor};
+	min-height: calc(100vh - 9rem);
+	transition: all 0.5s linear;
 `;
 
 const Home = () => {
 	return (
 		<PageContainer>
-			<PageHeading>Home Page</PageHeading>
+			<div></div>
 		</PageContainer>
 	);
 };

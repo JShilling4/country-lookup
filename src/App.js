@@ -1,28 +1,37 @@
 import React from "react";
+import { lightTheme, darkTheme } from "./assets/design/constants";
+import { useDarkMode } from "./components/useDarkMode/useDarkMode";
+import { ThemeProvider } from "styled-components";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import AppHeader from "./components/appHeader/AppHeader";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import AppHeader from "./components/appHeader/AppHeader.js";
 import Home from "./views/home/Home";
-import About from "./views/about/About";
+
+library.add(faMoon, faSun);
 
 const AppContainer = styled.div`
 	text-align: center;
 `;
 
 const App = () => {
-	return (
-		<AppContainer>
-			<AppHeader />
+	const [theme, themeToggler, mountedComponent] = useDarkMode();
+	const themeMode = theme === "light" ? lightTheme : darkTheme;
 
-			<Switch>
-				<Route exact path="/">
-					<Home />
-				</Route>
-				<Route path="/about">
-					<About />
-				</Route>
-			</Switch>
-		</AppContainer>
+	if (!mountedComponent) return <div />;
+	return (
+		<ThemeProvider theme={themeMode}>
+			<AppContainer>
+				<AppHeader theme={theme} toggleTheme={themeToggler} />
+
+				<Switch>
+					<Route exact path="/">
+						<Home theme={theme} />
+					</Route>
+				</Switch>
+			</AppContainer>
+		</ThemeProvider>
 	);
 };
 
