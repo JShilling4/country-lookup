@@ -6,13 +6,14 @@ import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import AppHeader from "./components/appHeader/AppHeader.js";
 import Home from "./views/home/Home";
 
-library.add(faMoon, faSun);
+library.add(faMoon, faSun, faSearch);
 
 const AppContainer = styled.div`
-	text-align: center;
+
 `;
 
 const App = () => {
