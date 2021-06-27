@@ -6,7 +6,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-	width: 50px;
+	font-size: 1.8rem;
 	color: ${({ theme }) => theme.fontColor};
 	margin-right: 1rem;
 	transition: all 0.5s linear;
@@ -15,6 +15,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 const Label = styled.span`
 	color: ${({ theme }) => theme.fontColor};
 	transition: all 0.5s linear;
+	font-size: 2rem;
 `;
 
 const ThemeToggle = ({ theme, toggleTheme }) => {
