@@ -25,7 +25,6 @@ const App = () => {
 		<ThemeProvider theme={themeMode}>
 			<AppContainer>
 				<AppHeader theme={theme} toggleTheme={themeToggler} />
-
 				<Switch>
 					<Route exact path="/">
 						<Home theme={theme} />

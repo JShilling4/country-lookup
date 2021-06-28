@@ -3,11 +3,12 @@ import styled from "styled-components";
 // STYLES
 
 const Wrapper = styled.div`
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.elementBgColor};
     margin: 4rem 4rem;
     border-radius: 10px;
     max-width: 27rem;
     box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
+	transition: background-color .5s linear;
 `;
 
 const FlagContainer = styled.div``;
@@ -25,15 +26,24 @@ const DetailContainer = styled.div`
     text-align: left;
 `;
 
+const Detail = styled.p`
+    margin-bottom: 0.5rem;
+    color: ${({ theme }) => theme.fontColor};
+	opacity: .9;
+`;
+
 const DetailLabel = styled.span`
     color: #333;
     font-weight: 600;
+    color: ${({ theme }) => theme.fontColor};
 `;
 
 const CountryName = styled.h2`
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
+	opacity: .9;
+    color: ${({ theme }) => theme.fontColor};
 `;
 
 // HTML
@@ -46,15 +56,15 @@ const CountryCard = (props) => {
             </FlagContainer>
             <DetailContainer>
                 <CountryName>{country.name}</CountryName>
-                <p className='detail'>
+                <Detail>
                     <DetailLabel>Population:</DetailLabel> {country.population.toLocaleString()}
-                </p>
-                <p className='detail'>
+                </Detail>
+                <Detail>
                     <DetailLabel>Region:</DetailLabel> {country.region}
-                </p>
-                <p className='detail'>
+                </Detail>
+                <Detail>
                     <DetailLabel>Capital:</DetailLabel> {country.capital}
-                </p>
+                </Detail>
             </DetailContainer>
         </Wrapper>
     );

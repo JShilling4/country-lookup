@@ -28,6 +28,10 @@ const TextInput = styled.input`
     border: 1px solid gray;
     border-radius: 5px;
     padding: 0 0 0 1rem;
+	font-size: 1.6rem;
+    background-color: ${({ theme }) => theme.elementBgColor};
+    color: ${({ theme }) => theme.fontColor};
+	transition: all .5s linear;
 `;
 
 const SearchInput = styled(TextInput)`
@@ -61,7 +65,7 @@ const CardContainer = styled.div`
 
 // HTML
 
-const Home = () => {
+const Home = ({ theme }) => {
     const [countries, setCountries] = useState([]);
     const [filteredCountries, setFilteredCountries] = useState([]);
     const [query, setQuery] = useState("");
@@ -125,7 +129,7 @@ const Home = () => {
                 </QueryContainer>
                 <CardContainer>
                     {filteredCountries.map((country) => (
-                        <CountryCard key={country.alpha3Code} country={country} />
+                        <CountryCard key={country.alpha3Code} theme={theme} country={country} />
                     ))}
                 </CardContainer>
             </ContentWrapper>
