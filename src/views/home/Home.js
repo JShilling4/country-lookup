@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PageContainer = styled.div`
     padding: 12rem 2rem;
+    min-height: 100vh;
     background-color: ${({ theme }) => theme.pageBgColor};
     transition: all 0.5s linear;
 `;
@@ -28,14 +29,17 @@ const TextInput = styled.input`
     border: 1px solid gray;
     border-radius: 5px;
     padding: 0 0 0 1rem;
-	font-size: 1.6rem;
+    font-size: 1.6rem;
     background-color: ${({ theme }) => theme.elementBgColor};
     color: ${({ theme }) => theme.fontColor};
-	transition: all .5s linear;
+    transition: all 0.5s linear;
 `;
 
 const SearchInput = styled(TextInput)`
     width: 30rem;
+    @media (max-width: 500px) {
+        width: 100%;
+    }
 `;
 
 const SearchSubmitButton = styled.button`
@@ -61,6 +65,9 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 const CardContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
+    @media (max-width: 500px) {
+        justify-content: center;
+    }
 `;
 
 // HTML
@@ -92,7 +99,7 @@ const Home = ({ theme }) => {
                     countries.find((country) => country.alpha3Code === result.alpha3Code)
                 );
                 setFilteredCountries(matches);
-				setQuery("");
+                setQuery("");
             })
             .catch(() => setFilteredCountries(countries));
     };
@@ -117,8 +124,8 @@ const Home = ({ theme }) => {
             <ContentWrapper>
                 <QueryContainer>
                     <SearchInput
-                        type='text'
-                        placeholder='Search for a country...'
+                        type="text"
+                        placeholder="Search for a country..."
                         value={query}
                         onChange={handleQueryChange}
                         onKeyPress={handleKeypress}
