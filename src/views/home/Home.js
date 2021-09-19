@@ -11,6 +11,9 @@ const PageContainer = styled.div`
     min-height: 100vh;
     background-color: ${({ theme }) => theme.pageBgColor};
     transition: all 0.5s linear;
+    @media (max-width: 500px) {
+        padding-top: 6rem;
+    }
 `;
 
 const ContentWrapper = styled.div`
@@ -22,6 +25,7 @@ const QueryContainer = styled.div`
     display: inline-block;
     position: relative;
     margin: 0 0 2rem 4rem;
+
 `;
 
 const TextInput = styled.input`
