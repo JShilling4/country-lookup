@@ -12,11 +12,11 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 	transition: all 0.5s linear;
 `;
 
-const Label = styled.span`
-	color: ${({ theme }) => theme.fontColor};
-	transition: all 0.5s linear;
-	font-size: 2rem;
-`;
+// const Label = styled.span`
+// 	color: ${({ theme }) => theme.fontColor};
+// 	transition: all 0.5s linear;
+// 	font-size: 2rem;
+// `;
 
 const ThemeToggle = ({ theme, toggleTheme }) => {
 	return (
@@ -24,7 +24,7 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
 			<StyledFontAwesomeIcon
 				icon={["far", theme === "light" ? "moon" : "sun"]}
 			/>
-			<Label>{theme === "light" ? "Dark Mode" : "Light Mode"}</Label>
+			{/* <Label>{theme === "light" ? "Dark Mode" : "Light Mode"}</Label> */}
 		</Wrapper>
 	);
 };
